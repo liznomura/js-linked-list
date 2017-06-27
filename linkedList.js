@@ -15,7 +15,14 @@
   }
 
   function getTail() {
-    return list;
+    let currentNode = list;
+    if(!currentNode) {
+      return null;
+    }
+    while(currentNode.next) {
+      currentNode = currentNode.next;
+    }
+    return currentNode;
   }
 
   function add(data) {
