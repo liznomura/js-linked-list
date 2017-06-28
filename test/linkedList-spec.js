@@ -95,6 +95,7 @@ describe('Linked List Generator', function() {
       newLinkedListB = linkedListGenerator(); // for `head` and `tail`
       newLinkedListC = linkedListGenerator(); // for `tail`
       newNodeA = newLinkedListA.add('http://slashdot.org');
+      console.log(newNodeA);
     });
 
     describe('should return a new node object after appending the node to the list', function () {
