@@ -49,34 +49,69 @@
     return newNode;
   }
 
-  function remove() {
-
-  }
-
-  function get(n) {
+  function remove(n) {
     let count = 0;
     let currentNode = list;
+    let previousNode = currentNode;
+    let foundNode = false;
+
+//if n = 0, assign currentNode.next to be list
+    if(n === 0) {
+      list = currentNode.next;
+    }
+
+//n < # of nodes....
+//loop thru nodes while count < n
+//store currentNode in another variable called previousNode
+//move forward with currentNode = currentNode.next
+//increment count with count++
+
+//n > total nodes...
+//if count < n && !currentNode.next
+//return false
+
+    while(count < n && currentNode.next) {
+      previousNode = currentNode;
+      console.log("previous", previousNode);
+      currentNode = currentNode.next;
+      console.log("current", currentNode);
+      count++;
+      console.log("count", count);
+    }
+
+//when n = count, assign previousNode.next to currentNode.next
+    previousNode.next = currentNode.next;
+
+if(count < n && !currentNode.next) {
+  return foundNode;
+  }
+}
+
+
+function get(n) {
+  let count = 0;
+  let currentNode = list;
 
 //n < # of nodes....
 //loop thru nodes while count < n
 //currentNode = currentNode.next
 //count++
 //when n = count, return currentNode
-  while(count < n) {
-    currentNode = currentNode.next;
-    count++;
+while(count < n) {
+  currentNode = currentNode.next;
+  count++;
 
 //n > total nodes...
 //if count < n && !currentNode.next
 //return false
 
-    if(count < n && !currentNode.next) {
-    return false;
-  }
-  }
+if(count < n && !currentNode.next) {
+  return false;
+}
+}
 
-  return currentNode;
-  }
+return currentNode;
+}
 
 function insert() {
 
