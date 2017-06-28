@@ -56,9 +56,9 @@
     let foundNode = false;
 
 //if n = 0, assign currentNode.next to be list
-    if(n === 0) {
-      list = currentNode.next;
-    }
+if(n === 0) {
+  list = currentNode.next;
+}
 
 //n < # of nodes....
 //loop thru nodes while count < n
@@ -70,21 +70,18 @@
 //if count < n && !currentNode.next
 //return false
 
-    while(count < n && currentNode.next) {
-      previousNode = currentNode;
-      console.log("previous", previousNode);
-      currentNode = currentNode.next;
-      console.log("current", currentNode);
-      count++;
-      console.log("count", count);
-    }
+while(count < n && currentNode.next) {
+  previousNode = currentNode;
+  currentNode = currentNode.next;
+  count++;
+}
 
 //when n = count, assign previousNode.next to currentNode.next
-    previousNode.next = currentNode.next;
+previousNode.next = currentNode.next;
 
 if(count < n && !currentNode.next) {
   return foundNode;
-  }
+}
 }
 
 
@@ -109,13 +106,33 @@ if(count < n && !currentNode.next) {
   return false;
 }
 }
-
 return currentNode;
 }
 
-function insert() {
+function insert(value, index) {
+  console.log(index);
+  let count = 0;
+  let currentNode = list;
+  let previousNode = currentNode;
 
+  if(index === 0) {
+    list = {value: value, next: list};
+    return;
+  }
+
+  if(get(index) === false || index < 0) {
+    return false;
+  }
+
+  while (count < index) {
+    previousNode = currentNode;
+    currentNode = currentNode.next;
+    count++;
+  }
+  previousNode.next = {value: value, next: currentNode};
 }
+
+
 
 return {
   getHead : getHead,
