@@ -9,7 +9,6 @@
 
   let list = null;
 
-
   function getHead() {
     return list;
   }
@@ -54,22 +53,43 @@
 
   }
 
-  function get() {
+  function get(n) {
+    let count = 0;
+    let currentNode = list;
 
+//n < # of nodes....
+//loop thru nodes while count < n
+//currentNode = currentNode.next
+//count++
+//when n = count, return currentNode
+  while(count < n) {
+    currentNode = currentNode.next;
+    count++;
+
+//n > total nodes...
+//if count < n && !currentNode.next
+//return false
+
+    if(count < n && !currentNode.next) {
+    return false;
+  }
   }
 
-  function insert() {
-
+  return currentNode;
   }
 
-  return {
-    getHead : getHead,
-    getTail : getTail,
-    add : add,
-    remove : remove,
-    get : get,
-    insert : insert
-  };
+function insert() {
+
+}
+
+return {
+  getHead : getHead,
+  getTail : getTail,
+  add : add,
+  remove : remove,
+  get : get,
+  insert : insert
+};
 }
 
 // let ll = linkedListGenerator();
